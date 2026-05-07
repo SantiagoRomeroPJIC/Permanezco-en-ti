@@ -1,0 +1,53 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
+
+const noticias = await getCollection("noticias");
+---
+
+<MainLayout title="Noticias">
+
+  <section class="space-y-8">
+
+    <div>
+      <h1 class="text-4xl font-bold">
+        Noticias
+      </h1>
+
+      <p class="text-gray-600">
+        Actividades y novedades del club.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+
+      {
+        noticias.map((noticia: any) => (
+
+          <a
+            href={`/noticias/${noticia.id}`}
+            class="block rounded-xl border border-gray-200 bg-white p-6 transition hover:border-green-700 hover:shadow-md"
+          >
+
+            <p class="text-sm text-green-700">
+              {noticia.data.date.toLocaleDateString()}
+            </p>
+
+            <h2 class="mt-2 text-2xl font-semibold">
+              {noticia.data.title}
+            </h2>
+
+            <p class="mt-3 text-gray-600">
+              {noticia.data.description}
+            </p>
+
+          </a>
+
+        ))
+      }
+
+    </div>
+
+  </section>
+
+</MainLayout>
