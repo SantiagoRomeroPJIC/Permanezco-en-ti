@@ -1,0 +1,86 @@
+---
+import SectionTitle from "../components/SectionTitle.astro";
+import MainLayout from "../layouts/MainLayout.astro";   
+---
+
+<MainLayout>
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+
+  <!-- Imagen tipo hero -->
+  <div
+    class="relative h-[420px] overflow-hidden rounded-3xl shadow-2xl"
+  >
+
+    <img
+      src="/images/Cooperacion.jpg"
+      alt="Estudiantes"
+      class="h-full w-full object-cover"
+    />
+
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-green-950/80 to-green-900/30"></div>
+
+    <!-- texto dentro de imagen -->
+    <div class="absolute bottom-0 left-0 p-8 text-white">
+
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-300">
+        Comunidad estudiantil
+      </p>
+
+      <h3 class="mt-3 text-4xl font-bold leading-tight">
+        Acompañamiento
+        y permanencia.
+      </h3>
+
+    </div>
+
+  </div>
+
+  <!-- Card -->
+  <div
+    class="rounded-3xl border border-white/20 bg-white/80 p-10 shadow-2xl backdrop-blur"
+  >
+
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-green-700">
+      Permanezco en Ti
+    </p>
+
+    <h3 class="mt-4 text-4xl font-bold leading-tight text-green-950">
+      Calidad académica y humana.
+    </h3>
+
+    <p class="mt-6 text-lg leading-relaxed text-gray-600">
+      El programa impulsa espacios de acompañamiento,
+      bienestar y fortalecimiento académico para los
+      estudiantes del Politécnico Colombiano Jaime
+      Isaza Cadavid.
+    </p>
+
+    <p class="mt-4 text-lg leading-relaxed text-gray-600">
+      A través de asesorías, actividades y recursos,
+      se busca construir una experiencia universitaria
+      más cercana, participativa y humana.
+    </p>
+
+    <div class="mt-8 flex gap-4">
+
+      <a
+        href="/novedades"
+        class="rounded-xl bg-green-900 px-6 py-3 font-semibold text-white transition hover:bg-green-800"
+      >
+        Ver novedades
+      </a>
+
+      <a
+        href="/asesorias"
+        class="rounded-xl border border-green-900 px-6 py-3 font-semibold text-green-900 transition hover:bg-green-900 hover:text-white"
+      >
+        Asesorías
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+</MainLayout>
