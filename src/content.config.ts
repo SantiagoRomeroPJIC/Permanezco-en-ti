@@ -15,6 +15,21 @@ const novedades = defineCollection({
   }),
 });
 
+const comunidad = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/comunidad",
+  }),
+
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    author: z.string(),
+    date: z.coerce.date(),
+  }),
+});
+
 export const collections = {
   novedades,
+  comunidad,
 };

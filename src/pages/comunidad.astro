@@ -1,0 +1,53 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import { getCollection } from "astro:content";
+
+const aportes = await getCollection("comunidad");
+---
+
+<MainLayout title="Comunidad estudiantil">
+
+  <section class="space-y-16 py-20">
+
+    <SectionTitle
+      title="Comunidad estudiantil"
+      subtitle="Espacio de participación y construcción colectiva para estudiantes."
+    />
+
+    <div class="grid gap-8 md:grid-cols-2">
+
+      {
+        aportes.map((aporte: any) => (
+
+          <a
+            href={`/comunidad/${aporte.id}`}
+            class="rounded-3xl border border-gray-200 bg-white p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl"
+          >
+
+            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-green-700">
+              {aporte.data.author}
+            </p>
+
+            <h2 class="mt-4 text-3xl font-bold text-green-950">
+              {aporte.data.title}
+            </h2>
+
+            <p class="mt-4 leading-relaxed text-gray-600">
+              {aporte.data.description}
+            </p>
+
+            <p class="mt-6 text-sm text-gray-400">
+              {aporte.data.date.toLocaleDateString()}
+            </p>
+
+          </a>
+
+        ))
+      }
+
+    </div>
+
+  </section>
+
+</MainLayout>

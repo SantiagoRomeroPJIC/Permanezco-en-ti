@@ -2,29 +2,48 @@
 interface Props {
   title: string;
   subtitle?: string;
+  light?: boolean;
 }
 
-const { title, subtitle } = Astro.props;
+const {
+  title,
+  subtitle,
+  light = false
+} = Astro.props;
 ---
 
 <div class="mb-16 text-center">
 
-  <!-- etiqueta superior -->
+  <!-- etiqueta -->
   <div class="mb-4 flex items-center justify-center gap-3">
 
-    <div class="h-[2px] w-12 rounded-full bg-yellow-400"></div>
+    <div
+      class={`h-[2px] w-12 rounded-full ${
+        light ? "bg-yellow-300" : "bg-yellow-400"
+      }`}
+    ></div>
 
-    <span class="text-sm font-semibold uppercase tracking-[0.3em] text-green-700">
+    <span
+      class={`text-sm font-semibold uppercase tracking-[0.3em] ${
+        light ? "text-green-100" : "text-green-700"
+      }`}
+    >
       Permanezco en Ti
     </span>
 
-    <div class="h-[2px] w-12 rounded-full bg-yellow-400"></div>
+    <div
+      class={`h-[2px] w-12 rounded-full ${
+        light ? "bg-yellow-300" : "bg-yellow-400"
+      }`}
+    ></div>
 
   </div>
 
   <!-- titulo -->
   <h2
-    class="mx-auto max-w-4xl text-4xl font-extrabold leading-tight text-green-950 md:text-5xl"
+    class={`mx-auto max-w-4xl text-4xl font-extrabold leading-tight md:text-5xl ${
+      light ? "text-white" : "text-green-950"
+    }`}
   >
     {title}
   </h2>
@@ -32,11 +51,14 @@ const { title, subtitle } = Astro.props;
   <!-- subtitulo -->
   {
     subtitle && (
-      <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-gray-600">
+      <p
+        class={`mx-auto mt-6 max-w-3xl text-lg leading-relaxed ${
+          light ? "text-green-50" : "text-gray-600"
+        }`}
+      >
         {subtitle}
       </p>
     )
   }
 
-</div>
 </div>

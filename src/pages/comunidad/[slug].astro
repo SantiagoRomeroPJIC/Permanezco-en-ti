@@ -1,0 +1,51 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+
+  const aportes = await getCollection("comunidad");
+
+  return aportes.map((aporte: any) => ({
+    params: {
+      slug: aporte.id,
+    },
+
+    props: {
+      aporte,
+    },
+  }));
+}
+
+const { aporte } = Astro.props as any;
+
+const { Content } = await render(aporte);
+---
+
+<MainLayout title={aporte.data.title}>
+
+  <article class="mx-auto max-w-4xl space-y-8 py-20">
+
+    <div>
+
+      <p class="text-sm font-semibold uppercase tracking-[0.2em] text-green-700">
+        {aporte.data.author}
+      </p>
+
+      <h1 class="mt-4 text-5xl font-bold text-green-950">
+        {aporte.data.title}
+      </h1>
+
+      <p class="mt-4 text-gray-500">
+        {aporte.data.date.toLocaleDateString()}
+      </p>
+
+    </div>
+
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+
+  </article>
+
+</MainLayout>
