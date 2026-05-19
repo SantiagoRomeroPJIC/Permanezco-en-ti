@@ -1,49 +1,128 @@
 <header
-    class="sticky top-0 z-50 border-b border-white/10 bg-green-950/90 backdrop-blur"
+  class="sticky top-0 z-50 border-b border-white/10 bg-green-950/90 backdrop-blur"
 >
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="/" class="flex items-center gap-4">
-            <img
-                src="/images/PermanezcoEnTiLogo.jpg"
-                alt="Permanezco en Ti"
-                class="h-20 w-20 rounded-2xl bg-white p-1 object-contain shadow-lg"
-            />
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6"
+  >
 
-            <div>
-                <h1
-                    class="text-2xl font-extrabold tracking-tight text-white"
-                    style="font-family: 'Outfit';"
-                >
-                    Permanezco
-                    <span class="text-yellow-300"> en Ti </span>
-                </h1>
+    <!-- Logo -->
 
-                <p class="text-sm text-green-100">Politécnico Colombiano JIC</p>
-            </div>
-        </a>
+    <a href="/" class="flex items-center gap-3">
 
-        <nav class="hidden gap-8 text-sm font-medium text-white md:flex">
-            <a href="/" class="transition hover:text-yellow-300"> Inicio </a>
+      <img
+        src="/images/PermanezcoEnTiLogo.jpg"
+        alt="Permanezco en Ti"
+        class="h-14 w-14 rounded-2xl bg-white p-1 object-contain shadow-lg md:h-20 md:w-20"
+      />
 
-            <a href="/novedades" class="transition hover:text-yellow-300">
-                Novedades
-            </a>
+      <div>
 
-            <a href="/comunidad" class="transition hover:text-yellow-300">
-                Comunidad
-            </a>
+        <h1
+          class="text-xl font-extrabold tracking-tight text-white md:text-3xl"
+          style="font-family: 'Outfit';"
+        >
+          Permanezco
+          <span class="text-yellow-300"> en Ti </span>
+        </h1>
 
-            <a href="/asesorias" class="transition hover:text-yellow-300">
-                Asesorías
-            </a>
+        <p class="text-xs text-green-100 md:text-sm">
+          Politécnico Colombiano JIC
+        </p>
 
-            <a href="/quienes-somos" class="transition hover:text-yellow-300">
-                ¿Qué es?
-            </a>
+      </div>
 
-            <a href="/galeria" class="transition hover:text-yellow-300">
-                Galería
-            </a>
-        </nav>
-    </div>
+    </a>
+
+    <!-- Desktop nav -->
+
+    <nav class="hidden items-center gap-8 text-sm font-medium text-white md:flex">
+
+      <a href="/" class="transition hover:text-yellow-300">
+        Inicio
+      </a>
+
+      <a href="/novedades" class="transition hover:text-yellow-300">
+        Novedades
+      </a>
+
+      <a href="/comunidad" class="transition hover:text-yellow-300">
+        Comunidad
+      </a>
+
+      <a href="/asesorias" class="transition hover:text-yellow-300">
+        Asesorías
+      </a>
+
+      <a href="/quienes-somos" class="transition hover:text-yellow-300">
+        ¿Qué es?
+      </a>
+
+      <a href="/galeria" class="transition hover:text-yellow-300">
+        Galería
+      </a>
+
+    </nav>
+
+    <!-- Mobile button -->
+
+    <button
+      id="menu-btn"
+      class="flex flex-col gap-1 md:hidden"
+    >
+
+      <span class="h-1 w-6 rounded bg-white"></span>
+      <span class="h-1 w-6 rounded bg-white"></span>
+      <span class="h-1 w-6 rounded bg-white"></span>
+
+    </button>
+
+  </div>
+
+  <!-- Mobile menu -->
+
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-white/10 bg-green-950 px-6 py-6 md:hidden"
+  >
+
+    <nav class="flex flex-col gap-5 text-white">
+
+      <a href="/" class="transition hover:text-yellow-300">
+        Inicio
+      </a>
+
+      <a href="/novedades" class="transition hover:text-yellow-300">
+        Novedades
+      </a>
+
+      <a href="/comunidad" class="transition hover:text-yellow-300">
+        Comunidad
+      </a>
+
+      <a href="/asesorias" class="transition hover:text-yellow-300">
+        Asesorías
+      </a>
+
+      <a href="/quienes-somos" class="transition hover:text-yellow-300">
+        ¿Qué es?
+      </a>
+
+      <a href="/galeria" class="transition hover:text-yellow-300">
+        Galería
+      </a>
+
+    </nav>
+
+  </div>
 </header>
+
+<script>
+
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+</script>
